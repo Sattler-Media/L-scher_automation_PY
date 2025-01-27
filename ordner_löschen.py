@@ -1,4 +1,4 @@
-Import.os
+import os
 
 def eliminar_carpetas_vacias(ruta):
     # Revisar todas las carpetas dentro de la ruta proporcionada

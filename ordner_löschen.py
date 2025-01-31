@@ -1,23 +1,24 @@
 import os
 
-def eliminar_carpetas_vacias(ruta):
-    # Revisar todas las carpetas dentro de la ruta proporcionada
-    for carpeta in os.listdir(ruta):
-        ruta_carpeta = os.path.join(ruta, carpeta)
-        
-        # Verificar si es una carpeta
-        if os.path.isdir(ruta_carpeta):
-            # Comprobar si la carpeta está vacía
-            if not os.listdir(ruta_carpeta):
-                # Si está vacía, eliminarla
-                os.rmdir(ruta_carpeta)
-                print(f"Carpeta vacía eliminada: {ruta_carpeta}")
+def UeberpruefenUndLoeschenLeererOrdner(pfad):
+    # Überprüfen alle Ordner im angegebenen Pfad und seinen Unterordnern
+    for ordner_pfad, unterordner, dateien in os.walk(pfad, topdown=False):
+        # Gehe alle Unterordner durch
+        for ordner in unterordner:
+            ordner_vollständiger_pfad = os.path.join(ordner_pfad, ordner)
+            
+            # Überprüfen, ob der Ordner leer ist
+            if not os.listdir(ordner_vollständiger_pfad):
+                # Wenn leer, dann löschen
+                os.rmdir(ordner_vollständiger_pfad)
+                print(f"Leerer Ordner entfernt: {ordner_vollständiger_pfad}")
             else:
-                # Si contiene archivos, informar
-                print(f"Carpeta con archivos: {ruta_carpeta}")
+                # Wenn er Dateien enthält, informieren
+                print(f"Ordner mit Dateien: {ordner_vollständiger_pfad}")
 
-# Ruta de la carpeta a revisar
-ruta_carpeta_principal = "C:/ruta/a/tu/carpeta"  # Cambia esta ruta según tu sistema
+# Pfad des zu überprüfenden Ordners
+haupt_ordner_pfad = "C:/pfad/zu/deinem/ordner"  # Passe diesen Pfad an dein System an
 
-# Llamada a la función
-eliminar_carpetas_vacias(ruta_carpeta_principal)
+
+# Funktionsaufruf
+UeberpruefenUndLoeschenLeererOrdner(haupt_ordner_pfad)

@@ -42,4 +42,4 @@ if __name__ == "__main__":
 
 
 ####### WICHTIG!!!!! ##########   
-# execute mit python ordner_löschen.py "C:/Users/adrian.maldonado/Desktop/Neuer Ordner"
+# execute mit python ordner_löschen.py "C:/dein/Pfad/zum/Aufräumen"

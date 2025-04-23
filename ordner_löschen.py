@@ -2,7 +2,7 @@ import os
 import logging
 import argparse
 
-# Configuración del registro (logging)
+# Konfiguration des Protokolls (Logging)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def UeberpruefenUndLoeschenLeererOrdner(pfad):
@@ -28,12 +28,12 @@ def UeberpruefenUndLoeschenLeererOrdner(pfad):
                 logging.error(f"Fehler beim Verarbeiten des Ordners {ordner_vollständiger_pfad}: {e}")
 
 if __name__ == "__main__":
-    # Argumentos de línea de comandos
+    # Befehlszeilenargumente
     parser = argparse.ArgumentParser(description="Überprüfen und Löschen leerer Ordner.")
     parser.add_argument("pfad", type=str, help="Pfad des zu überprüfenden Ordners")
     args = parser.parse_args()
 
-    # Validación del directorio principal
+    # Überprüfung des Hauptverzeichnisses
     if not os.path.exists(args.pfad):
         logging.error(f"Der angegebene Pfad existiert nicht: {args.pfad}")
     else:
@@ -42,4 +42,4 @@ if __name__ == "__main__":
 
 
 ####### WICHTIG!!!!! ##########   
-# execute mit python ordner_löschen.py "C:/dein/Pfad/zum/Aufräumen"
+# Ausführen mit python ordner_löschen.py "C:/dein/Pfad/zum/Aufräumen"
